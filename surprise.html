@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surprise for You!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background: #ffeef5;
+      overflow: hidden;
+      font-family: 'Great Vibes', cursive;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    h1 {
+      color: #e75480;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .flower {
+      width: 80px;
+      height: 80px;
+      position: absolute;
+      animation: fall 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+      }
+      30% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>💐 Surprise! I Love You So Much My Gorgeous Queen💖</h1>
+
+  <script>
+    const flowers = [
+      "img/img2.jpg",
+    
+      "img/img3.jpg",
+
+      "img/img4.jpg",
+
+      "img/img5.jpg",
+
+      "img/img6.jpg",
+
+      "img/img7.jpg",
+
+      "img/img8.jpg",
+
+      "img/img9.jpg",
+
+      "img/img10.jpg",
+
+      "img/img11.jpg",
+
+      "img/img12.jpg",
+
+      "img/img13.jpg",
+
+      "img/img14.jpg",
+
+      "img/img1.jpg",
+    ];
+
+    function createFlower() {
+      const flower = document.createElement("img");
+      flower.src = flowers[Math.floor(Math.random() * flowers.length)];
+      flower.className = "flower";
+      flower.style.left = Math.random() * 100 + "vw";
+      flower.style.animationDuration = (3 + Math.random() * 3) + "s";
+      document.body.appendChild(flower);
+
+      setTimeout(() => {
+        flower.remove();
+      }, 7000);
+    }
+
+    setInterval(createFlower, 300);
+  </script>
+</body>
+</html>
